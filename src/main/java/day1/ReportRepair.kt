@@ -1,11 +1,10 @@
 package day1
 
-class ReportRepair(private val sumNumberPairFinder: SumNumberPairFinder) {
+class ReportRepair(private val sumNumberFinder: SumNumberFinder) {
 
     operator fun invoke(numbers: List<Int>): Int {
-        val matchingPair = sumNumberPairFinder(numbers)
+        val matchingNumbers = sumNumberFinder(numbers)
 
-        println("numbers are ${matchingPair.first} & ${matchingPair.second}")
-        return matchingPair.first * matchingPair.second
+        return matchingNumbers.reduce { acc, num -> acc * num }
     }
 }

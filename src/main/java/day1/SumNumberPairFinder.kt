@@ -1,13 +1,13 @@
 package day1
 
-class SumNumberPairFinder(private val target: Int) {
+class SumNumberPairFinder(private val target: Int): SumNumberFinder {
 
-    operator fun invoke(numbers: List<Int>): Pair<Int,Int> {
+    override operator fun invoke(numbers: List<Int>): List<Int> {
         val arrayList = mutableListOf<Int>()
 
         numbers.forEach { num ->
             if (arrayList.contains(num)) {
-                return Pair(num, target - num)
+                return listOf(num, target - num)
             } else {
                 arrayList.add(target - num)
             }
