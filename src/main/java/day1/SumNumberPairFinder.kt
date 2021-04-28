@@ -1,5 +1,7 @@
 package day1
 
+import day1.exceptions.EntriesNotFound
+
 class SumNumberPairFinder(private val target: Int): SumNumberFinder {
 
     override operator fun invoke(numbers: List<Int>): List<Int> {
@@ -13,6 +15,6 @@ class SumNumberPairFinder(private val target: Int): SumNumberFinder {
             }
         }
 
-        throw NumberNotMatchingException()
+        throw EntriesNotFound()
     }
 }

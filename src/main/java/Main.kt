@@ -1,6 +1,7 @@
-import day1.ReportRepairMain
+import day1.case.ReportRepairMain
 
 fun main(args: Array<String>) {
     val reportRepairMain = ReportRepairMain()
-    reportRepairMain()
+    reportRepairMain.pairs()
+    reportRepairMain.triplets()
 }

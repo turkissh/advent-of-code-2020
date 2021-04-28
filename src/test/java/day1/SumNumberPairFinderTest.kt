@@ -1,5 +1,6 @@
 package day1
 
+import day1.exceptions.EntriesNotFound
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -21,7 +22,7 @@ class SumNumberPairFinderTest {
         val numbers = listOf(300,500)
         val sumNumberPairFinder = SumNumberPairFinder(TARGET)
 
-        assertThrows<NumberNotMatchingException> { sumNumberPairFinder(numbers) }
+        assertThrows<EntriesNotFound> { sumNumberPairFinder(numbers) }
     }
 
     private companion object {

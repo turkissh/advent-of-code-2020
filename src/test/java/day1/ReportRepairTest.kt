@@ -1,5 +1,6 @@
 package day1
 
+import day1.exceptions.EntriesNotFound
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -21,7 +22,7 @@ class ReportRepairTest {
         val sumNumberPairFinder = SumNumberPairFinder(2020)
         val reportRepair = ReportRepair(sumNumberPairFinder)
 
-        assertThrows<NumberNotMatchingException> { reportRepair(NUMBERS_NOT_SUMMING_2020) }
+        assertThrows<EntriesNotFound> { reportRepair(NUMBERS_NOT_SUMMING_2020) }
     }
 
     @Test
