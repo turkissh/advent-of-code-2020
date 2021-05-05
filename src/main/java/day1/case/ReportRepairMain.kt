@@ -11,7 +11,7 @@ class ReportRepairMain {
 
         val result = reportRepair(ReportRepairCase.numbers)
 
-        println("Pair -> the multiply is: $result")
+        println("DAY 1-1: Pair -> the multiply is: $result")
     }
     
     fun triplets() {
@@ -20,6 +20,6 @@ class ReportRepairMain {
 
         val result = reportRepair(ReportRepairCase.numbers)
 
-        println("Triplet -> the multiply is: $result")
+        println("DAY 1-2: Triplet -> the multiply is: $result")
     }
 }

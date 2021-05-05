@@ -22,20 +22,5 @@ class PasswordEntryParserTest {
 
         assertThat(entries).containsAll(expectedEntries)
     }
-
 }
 
-class PasswordEntryParser {
-    fun parse(input: String): List<PasswordEntry> {
-        return input.lines().map { line ->
-            val splitedLine = line.trim().split(" ")
-
-            val (min, max) = splitedLine[0].split("-").let { Pair(it[0].toInt(), it[1].toInt()) }
-            val character = splitedLine[1][0]
-            val password = splitedLine[2]
-
-            PasswordEntry(Policy(character, min, max), password)
-        }
-    }
-
-}
