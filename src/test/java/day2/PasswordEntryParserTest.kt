@@ -1,5 +1,6 @@
 package day2
 
+import day2.policies.CharacterCountPolicyFactory
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
@@ -13,12 +14,12 @@ class PasswordEntryParserTest {
             2-9 c: ccccccccc"""
 
         val expectedEntries = listOf(
-            PasswordEntry(Policy('a', 1, 3), "abcde"),
-            PasswordEntry(Policy('b', 1, 3), "cdefg"),
-            PasswordEntry(Policy('c', 2, 9), "ccccccccc")
+            PasswordEntry(CharacterCountPolicy('a', 1, 3), "abcde"),
+            PasswordEntry(CharacterCountPolicy('b', 1, 3), "cdefg"),
+            PasswordEntry(CharacterCountPolicy('c', 2, 9), "ccccccccc")
         )
 
-        val entries = parser.parse(input)
+        val entries = parser.parse(input, CharacterCountPolicyFactory())
 
         assertThat(entries).containsAll(expectedEntries)
     }
