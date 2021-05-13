@@ -28,24 +28,3 @@ class TrajectoryTest {
         val expectedNewPosition = Position(2, 4)
     }
 }
-
-data class Position(val row: Int, val column: Int)
-
-class Trajectory {
-
-    private var position = initialPosition
-
-    fun currentPosition(): Position {
-        return position
-    }
-
-    fun slide() {
-        position = Position(position.row + rowSlide, position.column + columnSlide)
-    }
-
-    private companion object {
-        const val rowSlide = 1
-        const val columnSlide = 3
-        val initialPosition = Position(1, 1)
-    }
-}

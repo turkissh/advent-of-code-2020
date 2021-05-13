@@ -81,6 +81,12 @@
 			<version>3.9.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.nhaarman</groupId>
+			<artifactId>mockito-kotlin</artifactId>
+			<version>1.6.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -105,9 +111,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<args>
-					<arg>-Xcoroutines=enable</arg>
-				</args>
 				<configuration>
 					<jvmTarget>1.8</jvmTarget>
 				</configuration>
