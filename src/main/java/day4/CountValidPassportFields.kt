@@ -1,9 +1,11 @@
 package day4
 
-class CountValidPassportFields(private val passwordValidator: PassportFieldsValidator) {
+import day4.validator.PassportFieldValidator
+
+class CountValidPassportFields(private val passportFieldValidator: PassportFieldValidator) {
 
     operator fun invoke(passportFieldsList: List<PassportFields>): Int {
-        return passportFieldsList.count { passwordValidator.areValid(it) }
+        return passportFieldsList.count { passportFieldValidator.areValid(it) }
     }
 
 }

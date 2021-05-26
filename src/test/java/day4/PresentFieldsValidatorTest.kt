@@ -1,14 +1,15 @@
 package day4
 
+import day4.validator.PresentFieldsValidator
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class PassportFieldsValidatorTest {
+class PresentFieldsValidatorTest {
 
     @Test
     internal fun `passport having all fields present is valid`() {
         val passportFields = createAllPassportFields()
-        val validator = PassportFieldsValidator()
+        val validator = PresentFieldsValidator()
 
         val isValid = validator.areValid(passportFields)
 
@@ -18,7 +19,7 @@ class PassportFieldsValidatorTest {
     @Test
     internal fun `passport missing country id is valid`() {
         val passportFields = createAllPassportFieldsButCountryId()
-        val validator = PassportFieldsValidator()
+        val validator = PresentFieldsValidator()
 
         val isValid = validator.areValid(passportFields)
 
@@ -28,7 +29,7 @@ class PassportFieldsValidatorTest {
     @Test
     internal fun `passport with missing field is invalid`() {
         val passportFields = createPassportFieldsWithMissingField()
-        val validator = PassportFieldsValidator()
+        val validator = PresentFieldsValidator()
 
         val isValid = validator.areValid(passportFields)
 

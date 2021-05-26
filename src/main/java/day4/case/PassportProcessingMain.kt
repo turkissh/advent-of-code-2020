@@ -2,16 +2,19 @@ package day4.case
 
 import day4.CountValidPassportFields
 import day4.PassportFieldsParser
-import day4.PassportFieldsValidator
+import day4.validator.PresentFieldsValidator
+import day4.validator.ValueFieldValidator
 
 class PassportProcessingMain {
 
     fun exec() {
         val passportFields = PassportFieldsParser().parse(PassportProcessingCase.case)
-        val countValid = CountValidPassportFields(PassportFieldsValidator())
+        val countPresentFields = CountValidPassportFields(PresentFieldsValidator())
 
-        val validPassportCount = countValid(passportFields)
+        println("DAY 4-1 : Valid passports: ${countPresentFields(passportFields)}")
 
-        println("DAY 4-1 : Valid passports: $validPassportCount")
+        val countValueValidFields = CountValidPassportFields(ValueFieldValidator())
+
+        println("DAY 4-2 : Valid passports: ${countValueValidFields(passportFields)}")
     }
 }
