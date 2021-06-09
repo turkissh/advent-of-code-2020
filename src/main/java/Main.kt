@@ -2,6 +2,7 @@ import day1.case.ReportRepairMain
 import day2.case.PasswordPhilosophyMain
 import day3.case.TobogganTrajectoryMain
 import day4.case.PassportProcessingMain
+import day5.case.BinaryBoardingMain
 
 fun main(args: Array<String>) {
     val reportRepairMain = ReportRepairMain()
@@ -22,4 +23,9 @@ fun main(args: Array<String>) {
 
     val passportProcessingMain = PassportProcessingMain()
     passportProcessingMain.exec()
+
+    println()
+
+    val binaryBoardingMain = BinaryBoardingMain()
+    binaryBoardingMain.exec()
 }
