@@ -4,6 +4,7 @@ import day3.case.TobogganTrajectoryMain
 import day4.case.PassportProcessingMain
 import day5.case.BinaryBoardingMain
 import day6.case.CustomCustomsMain
+import day7.case.HandyHaversacksMain
 
 fun main(args: Array<String>) {
     val reportRepairMain = ReportRepairMain()
@@ -34,4 +35,9 @@ fun main(args: Array<String>) {
 
     val customCustomsMain = CustomCustomsMain()
     customCustomsMain.exec()
+
+    println()
+
+    val handyHaversacksMain = HandyHaversacksMain()
+    handyHaversacksMain.exec()
 }
