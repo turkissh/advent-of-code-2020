@@ -3,6 +3,9 @@ package day7
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
+typealias ContainerBag = String
+typealias ContainedBags = List<Pair<Int, String>>
+
 class RulesParserTest {
 
     @Test
@@ -11,10 +14,11 @@ class RulesParserTest {
             bright white bags contain 1 shiny gold bag.
         """.trimIndent()
         val parser = RulesParser()
+        val expectedRules = mapOf(Pair("bright white", listOf(Pair(1, "shiny gold"))))
 
         val rules = parser.parse(input)
 
-        assertThat(rules).isEqualTo(Rules().apply { add("shiny gold", listOf("bright white")) })
+        assertThat(rules).isEqualTo(expectedRules)
     }
 
     @Test
@@ -23,9 +27,8 @@ class RulesParserTest {
             light red bags contain 1 bright white bag, 2 muted yellow bags.
         """.trimIndent()
         val parser = RulesParser()
-        val expectedRule = Rules().apply {
-            add("bright white", listOf("light red"))
-            add("muted yellow", listOf("light red"))
+        val expectedRule = mutableMapOf<ContainerBag, ContainedBags>().apply {
+            put("light red", listOf(Pair(1, "bright white"), Pair(2, "muted yellow")))
         }
 
         val rules = parser.parse(input)
@@ -39,11 +42,8 @@ class RulesParserTest {
             plaid teal bags contain 2 bright aqua bags, 1 posh olive bag, 4 shiny white bags, 3 dotted beige bags.
         """.trimIndent()
         val parser = RulesParser()
-        val expectedRule = Rules().apply {
-            add("bright aqua", listOf("plaid teal"))
-            add("posh olive", listOf("plaid teal"))
-            add("shiny white", listOf("plaid teal"))
-            add("dotted beige", listOf("plaid teal"))
+        val expectedRule = mutableMapOf<ContainerBag, ContainedBags>().apply {
+            put("plaid teal", listOf(Pair(2, "bright aqua"), Pair(1, "posh olive"), Pair(4, "shiny white"), Pair(3, "dotted beige")))
         }
 
         val rules = parser.parse(input)
@@ -57,7 +57,7 @@ class RulesParserTest {
             faded blue bags contain no other bags.
         """.trimIndent()
         val parser = RulesParser()
-        val expectedRule = Rules()
+        val expectedRule = mutableMapOf<ContainerBag, ContainedBags>()
 
         val rules = parser.parse(input)
 
@@ -72,10 +72,10 @@ class RulesParserTest {
             bright white bags contain 1 shiny gold bag.
         """.trimIndent()
         val parser = RulesParser()
-        val expectedRule = Rules().apply {
-            add("bright white", listOf("light red", "dark orange"))
-            add("muted yellow", listOf("light red", "dark orange"))
-            add("shiny gold", listOf("bright white"))
+        val expectedRule = mutableMapOf<ContainerBag, ContainedBags>().apply {
+            put("light red", listOf(Pair(1, "bright white"), Pair(2, "muted yellow")))
+            put("dark orange", listOf(Pair(3, "bright white"), Pair(4, "muted yellow")))
+            put("bright white", listOf(Pair(1, "shiny gold")))
         }
 
         val rules = parser.parse(input)
