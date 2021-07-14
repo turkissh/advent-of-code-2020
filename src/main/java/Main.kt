@@ -5,6 +5,7 @@ import day4.case.PassportProcessingMain
 import day5.case.BinaryBoardingMain
 import day6.case.CustomCustomsMain
 import day7.case.HandyHaversacksMain
+import day8.case.HandheldHaltingMain
 
 fun main(args: Array<String>) {
     val reportRepairMain = ReportRepairMain()
@@ -40,4 +41,9 @@ fun main(args: Array<String>) {
 
     val handyHaversacksMain = HandyHaversacksMain()
     handyHaversacksMain.exec()
+
+    println()
+
+    val handheldHaltingMain = HandheldHaltingMain()
+    handheldHaltingMain.exec()
 }
