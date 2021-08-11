@@ -6,6 +6,7 @@ import day5.case.BinaryBoardingMain
 import day6.case.CustomCustomsMain
 import day7.case.HandyHaversacksMain
 import day8.case.HandheldHaltingMain
+import day9.case.EncodingErrorMain
 
 fun main(args: Array<String>) {
     val reportRepairMain = ReportRepairMain()
@@ -46,4 +47,9 @@ fun main(args: Array<String>) {
 
     val handheldHaltingMain = HandheldHaltingMain()
     handheldHaltingMain.exec()
+
+    println()
+
+    val encodingErrorMain = EncodingErrorMain()
+    encodingErrorMain.exec()
 }
